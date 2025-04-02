@@ -1,3 +1,4 @@
+import './css/main.css';
 import './js/header';
 import './js/about-me';
 import './js/faq';
