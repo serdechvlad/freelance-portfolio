@@ -34,6 +34,7 @@ export default defineConfig(({ command }) => {
           },
         },
       },
+      base: '/freelance-portfolio/',
       outDir: '../dist',
       emptyOutDir: true,
     },
