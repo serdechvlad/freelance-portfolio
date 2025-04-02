@@ -1,11 +1,11 @@
 {
-  "name": "green-harvest",
+  "name": "freelance-portfolio",
   "private": true,
   "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build --base=/freelance-artists/",
+    "build": "vite build --base=/freelance-portfolio/",
     "preview": "vite preview"
   },
   "devDependencies": {
