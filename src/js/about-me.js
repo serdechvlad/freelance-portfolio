@@ -1,8 +1,10 @@
 import Accordion from 'accordion-js';
 import "accordion-js/dist/accordion.min.css";
 //import Swiper from 'swiper';
-import Swiper, { Navigation } from 'swiper';
+import Swiper from 'swiper';
+import { Navigation } from 'swiper/modules';
 import 'swiper/css';
+import 'swiper/css/navigation';
 
 document.addEventListener("DOMContentLoaded", () => {
   new Accordion(".accordion-container", {
@@ -43,4 +45,3 @@ document.addEventListener("DOMContentLoaded", () => {
     grabCursor: true,
   });
 });
-console.log(swiper);
