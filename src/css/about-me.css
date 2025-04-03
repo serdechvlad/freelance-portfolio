@@ -1,0 +1,227 @@
+.about-me {
+    position: relative;
+    background: var(--background);
+    padding: 64px 0 32px;
+}
+
+@media screen and (min-width: 768) {
+    .about-me {
+        padding: 64px 0 48px;
+    }
+}
+
+@media screen and (min-width: 1440) {
+    .about-me {
+        padding: 96px 0 82px;
+    }
+}
+
+.about-wrapper {
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+@media screen and (min-width: 1440px) {
+    .about-wrapper {
+        flex-direction: row;
+    }
+}
+
+.about-left {
+    padding: 32px 32px 272px;
+    margin-bottom: 16px;
+}
+
+@media screen and (min-width: 1440px) {
+    .about-left {
+        max-width: 680px;
+        padding: 64px 64px 436px;
+        margin-bottom: 16px;
+        margin-right: 16px;
+        
+    }
+
+}
+
+
+.about-txt {
+    font-family: Inter Tight;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 28px;
+    letter-spacing: -3%;
+    text-transform: uppercase;
+    color: #fafafa;
+}
+
+.about-r-span {
+    color: #ed3b44;
+}
+
+.about-g-span {
+    color: #fafafa66;
+}
+
+@media screen and (min-width: 768) {
+    .about-txt {
+        font-size: 38px;
+        line-height: 40px;
+    }
+}
+
+.about-right {
+    max-width: 100%;
+}
+
+@media screen and (min-width: 1440) {
+    .about-right {
+        max-width: 680px;
+    }
+}
+
+.thumb {
+    max-width: 100%;
+    border-radius: 24px;
+    overflow: hidden;
+    object-fit: cover;
+    
+}
+
+
+
+.accordion-container {
+    background-color: var(--background);
+}
+
+.accordion-container .ac {
+    background-color: var(--background);
+    margin-bottom: 20px;
+    border: none;
+    border-bottom: 1px solid #fafafa33;
+}
+
+.active {}
+
+.accordion-container .ac.ac-header {
+    
+    border: none;
+}
+
+.accordion-container .ac .ac-trigger {
+    text-transform: uppercase;
+    color: #FAFAFA66;
+    border: none
+}
+
+.accordion-container .ac .ac-panel {
+   
+    padding-top: 12px;
+    padding-bottom: 20px;
+    border: none;
+    border-bottom: 1px solid #fafafa33;
+}
+
+.accordion-container .ac.acis-active .ac-panel {
+    padding: 0;
+    border: none;
+    border-bottom: 1px solid #fafafa33;
+}
+.accordion-container .ac .ac-text {
+    font-family: Inter Tight;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.02em;
+    color: var(--white);
+}
+
+.accordion-container .ac.is-active .ac-text {
+    padding: 0;
+    font-family: Inter Tight;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.02em;
+    color: var(--white);
+    margin-top: 12px;
+    margin-bottom: 10px;
+}
+.accordion-container .ac:first-child .ac-panel .ac-text {
+    margin-bottom: 20px;
+}
+
+.accordion-container .ac:not(:first-child) .ac-panel .ac-text {
+    margin-bottom: 10px;
+}
+
+.accordion-container .ac-panel .ac-text:last-child {
+    margin-bottom: 0;
+}
+
+@media screen and (min-width: 1440) { 
+.accordion-container .ac .ac-panel {
+    padding-left: 696px;
+    padding-right: 68px;
+}
+
+}
+
+
+.swiper {
+    width: 100%; 
+    display: flex;
+    
+}
+
+.swiper-wrapper {
+    display: flex;
+    max-width: 260px;
+    overflow: hidden;
+    align-items: center;
+    justify-content: start;
+}
+
+
+.swiper-slide {
+    display: flex;
+    flex: 0 0 130px;
+    justify-content: center;
+    align-items: center;
+    max-width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.02em;
+    border: 1px solid #FAFAFA33;
+}
+
+.swiper.swiper-slide-active {
+    background: var(--success);
+    border: 2px solid var(--green);
+}
+
+.swiper-pagination {}
+
+.swiper-button-prev {}
+
+.swiper-button-next {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    display: block;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 1px solid var(--success);
+    z-index: 10;
+    pointer-events: auto;
+    
+}
+
+.swiper-scrollbar {}
