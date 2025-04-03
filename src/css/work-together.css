@@ -18,16 +18,15 @@ textarea {
   border-radius: 5px;
 }
 button {
-  background-color: #ed3b44;
+  background-color: #c6e327;
   color: #fff;
   padding: 10px;
   border: none;
   border-radius: 50%;
   cursor: pointer;
-  transition: background 0.3s;
 }
 button:hover {
-  background-color: #e0373f;
+  background-color: #596808;
 }
 .modal {
   position: fixed;
