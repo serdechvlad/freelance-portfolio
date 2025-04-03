@@ -1,5 +1,39 @@
-<section class="reviews">
+<section class="reviews" id="reviews">
   <div class="container">
-    <h2 class="reviews-title">Reviews</h2>
+    <h2 class="reviews__title">REVIEWS</h2>
+
+    <div class="reviews__content">
+      <div class="reviews__slider swiper">
+        <ul class="reviews__list swiper-wrapper">
+          <!-- Reviews will be loaded here -->
+        </ul>
+      </div>
+
+      <div class="reviews__nav">
+        <button
+          class="reviews__button reviews__button--prev"
+          aria-label="Previous review"
+          disabled
+        >
+          <svg width="24" height="24" viewBox="0 0 24 24">
+            <path
+              d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"
+            />
+          </svg>
+        </button>
+        <button
+          class="reviews__button reviews__button--next"
+          aria-label="Next review"
+        >
+          <svg width="24" height="24" viewBox="0 0 24 24">
+            <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="reviews__fallback" style="display: none">
+      <p class="reviews__not-found">Not found</p>
+    </div>
   </div>
 </section>
