@@ -1,135 +1,131 @@
-class ReviewsSlider {
-  constructor() {
-    this.currentIndex = 0;
-    this.reviews = [];
-    this.slider = document.querySelector('.reviews__list');
-    this.prevBtn = document.querySelector('.reviews__button--prev');
-    this.nextBtn = document.querySelector('.reviews__button--next');
-    this.fallback = document.querySelector('.reviews__fallback');
+document.addEventListener('DOMContentLoaded', async function () {
+  try {
+    // Load reviews data
+    const reviews = await loadReviews();
 
-    this.init();
+    // Render reviews
+    renderReviews(reviews);
+
+    // Initialize slider
+    initSlider();
+  } catch (error) {
+    console.error('Error:', error);
+    showFallback();
+    showError(error.message);
   }
+});
 
-  async init() {
-    try {
-      await this.loadReviews();
-      this.renderReviews();
-      this.setupEvents();
-      this.updateButtons();
-    } catch (error) {
-      this.showError(error);
-    }
-  }
+// Mock API call (replace with real fetch)
+async function loadReviews() {
+  // Simulate network delay
+  await new Promise(resolve => setTimeout(resolve, 500));
 
-  async loadReviews() {
-    // Замените на реальный API-запрос
-    const mockReviews = [
-      {
-        name: 'Natalia',
-        text: 'Work with was extraordinary! He turned out to be a very competent and responsible specialist...',
-      },
-      {
-        name: 'Dmytro',
-        text: 'I have the honor to recommend him as an exceptional professional in his field...',
-      },
-      {
-        name: 'Anna',
-        text: 'The developed project impresses with its quality and efficiency...',
-      },
-      {
-        name: 'Ivetta',
-        text: 'Thanks for the excellent work on the project! His talent and professionalism deserve recognition...',
-      },
-    ];
-
-    // Имитация задержки загрузки
-    await new Promise(resolve => setTimeout(resolve, 500));
-
-    if (mockReviews.length === 0) {
-      throw new Error('No reviews found');
-    }
-
-    this.reviews = mockReviews;
-  }
-
-  renderReviews() {
-    if (this.reviews.length === 0) {
-      this.showFallback();
-      return;
-    }
-
-    this.slider.innerHTML = this.reviews
-      .map(
-        review => `
-      <li class="reviews__item">
-        <div class="review-card">
-          <h3 class="review-card__name">${review.name}</h3>
-          <p class="review-card__text">${review.text}</p>
-        </div>
-      </li>
-    `
-      )
-      .join('');
-  }
-
-  setupEvents() {
-    this.prevBtn.addEventListener('click', () => this.prevSlide());
-    this.nextBtn.addEventListener('click', () => this.nextSlide());
-
-    // Клавиатурная навигация
-    document.addEventListener('keydown', e => {
-      if (e.key === 'ArrowLeft') this.prevSlide();
-      if (e.key === 'ArrowRight') this.nextSlide();
-    });
-  }
-
-  prevSlide() {
-    if (this.currentIndex > 0) {
-      this.currentIndex--;
-      this.updateSlider();
-      this.updateButtons();
-    }
-  }
-
-  nextSlide() {
-    if (this.currentIndex < this.reviews.length - 1) {
-      this.currentIndex++;
-      this.updateSlider();
-      this.updateButtons();
-    }
-  }
-
-  updateSlider() {
-    const itemWidth = this.slider.children[0]?.offsetWidth || 0;
-    this.slider.style.transform = `translateX(-${
-      this.currentIndex * itemWidth
-    }px)`;
-  }
-
-  updateButtons() {
-    this.prevBtn.disabled = this.currentIndex === 0;
-    this.nextBtn.disabled = this.currentIndex >= this.reviews.length - 1;
-  }
-
-  showFallback() {
-    this.slider.style.display = 'none';
-    this.fallback.style.display = 'block';
-  }
-
-  showError(error) {
-    console.error('Error loading reviews:', error);
-    this.showFallback();
-
-    // Показываем сообщение об ошибке
-    const errorElement = document.createElement('div');
-    errorElement.className = 'reviews__error';
-    errorElement.textContent = 'Error loading reviews. Please try again later.';
-    this.fallback.appendChild(errorElement);
-  }
+  return [
+    {
+      name: 'Natalia',
+      text: 'Work with was extraordinary! He turned out to be a very competent and responsible specialist. The projects were completed on time and the result exceeded my expectations.',
+    },
+    {
+      name: 'Dmytro',
+      text: 'I have the honor to recommend him as an exceptional professional in his field. His knowledge and expertise are undeniable. Cooperation with him always brings impressive results.',
+    },
+    {
+      name: 'Anna',
+      text: 'The developed project impresses with its quality and efficiency. The code is cleanly written and the functionality exceeds expectations. Extremely satisfied with the cooperation!',
+    },
+    {
+      name: 'Ivetta',
+      text: 'Thanks for the excellent work on the project! His talent and professionalism deserve recognition. I recommend it to everyone who is looking for an expert in the field of software development.',
+    },
+  ];
 }
 
-// Инициализация при загрузке страницы
-document.addEventListener('DOMContentLoaded', () => {
-  new ReviewsSlider();
-});
-ава;
+function renderReviews(reviews) {
+  const list = document.querySelector('.reviews-list');
+
+  if (!reviews || reviews.length === 0) {
+    showFallback();
+    return;
+  }
+
+  list.innerHTML = reviews
+    .map(
+      review => `
+    <li class="review-item">
+      <h3 class="review-author">${review.name}</h3>
+      <p class="review-text">${review.text}</p>
+    </li>
+  `
+    )
+    .join('');
+}
+
+function initSlider() {
+  const list = document.querySelector('.reviews-list');
+  const prevBtn = document.querySelector('.reviews-prev');
+  const nextBtn = document.querySelector('.reviews-next');
+  let currentIndex = 0;
+
+  function updateSlider() {
+    const itemWidth = document.querySelector('.review-item').offsetWidth + 20;
+    list.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+    updateButtons();
+  }
+
+  function updateButtons() {
+    const visibleItems = getVisibleItemsCount();
+    const totalItems = document.querySelectorAll('.review-item').length;
+    prevBtn.disabled = currentIndex === 0;
+    nextBtn.disabled = currentIndex >= totalItems - visibleItems;
+  }
+
+  function getVisibleItemsCount() {
+    if (window.innerWidth >= 1024) return 4;
+    if (window.innerWidth >= 768) return 2;
+    return 1;
+  }
+
+  // Event listeners
+  prevBtn.addEventListener('click', () => {
+    if (currentIndex > 0) {
+      currentIndex--;
+      updateSlider();
+    }
+  });
+
+  nextBtn.addEventListener('click', () => {
+    const visibleItems = getVisibleItemsCount();
+    const totalItems = document.querySelectorAll('.review-item').length;
+
+    if (currentIndex < totalItems - visibleItems) {
+      currentIndex++;
+      updateSlider();
+    }
+  });
+
+  // Handle window resize
+  window.addEventListener('resize', () => {
+    currentIndex = 0;
+    list.style.transform = 'translateX(0)';
+    updateButtons();
+  });
+
+  // Initial update
+  updateButtons();
+}
+
+function showFallback() {
+  document.querySelector('.reviews-container').style.display = 'none';
+  document.querySelector('.reviews-fallback').style.display = 'block';
+}
+
+function showError(message) {
+  const errorElement = document.createElement('div');
+  errorElement.className = 'error-notification';
+  errorElement.textContent = `Error: ${message}`;
+  document.body.appendChild(errorElement);
+
+  setTimeout(() => {
+    errorElement.remove();
+  }, 5000);
+}
