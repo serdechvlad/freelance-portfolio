@@ -132,3 +132,4 @@ class ReviewsSlider {
 document.addEventListener('DOMContentLoaded', () => {
   new ReviewsSlider();
 });
+ава;
