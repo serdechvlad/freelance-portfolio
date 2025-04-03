@@ -2,23 +2,28 @@
   <h2 class="reviews-title">REVIEWS</h2>
 
   <div class="reviews-container">
-    <button
-      class="reviews-nav reviews-prev"
-      aria-label="Previous reviews"
-      disabled
-    >
-      &lt;
-    </button>
-
     <div class="reviews-wrapper">
       <ul class="reviews-list">
         <!-- Reviews will be loaded here -->
       </ul>
     </div>
 
-    <button class="reviews-nav reviews-next" aria-label="Next reviews">
-      &gt;
-    </button>
+    <div class="reviews-controls">
+      <button
+        class="reviews-nav reviews-prev"
+        aria-label="Previous reviews"
+        disabled
+      >
+        <svg width="24" height="24" viewBox="0 0 24 24">
+          <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z" />
+        </svg>
+      </button>
+      <button class="reviews-nav reviews-next" aria-label="Next reviews">
+        <svg width="24" height="24" viewBox="0 0 24 24">
+          <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z" />
+        </svg>
+      </button>
+    </div>
   </div>
 
   <div class="reviews-fallback" style="display: none">
