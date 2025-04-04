@@ -7,8 +7,9 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
-
+  --font-family: 'Inter Tight', serif;
   --background: #1c1d20;
+  --title: #fafafa66;
   --cards: #242527;
   --arrow: #3b3b3b;
   --green: #c6e327;
