@@ -4,7 +4,7 @@ import "accordion-js/dist/accordion.min.css";
 import Swiper from 'swiper';
 import { Navigation } from 'swiper/modules';
 import 'swiper/css';
-import 'swiper/css/navigation';
+//import 'swiper/css/navigation';
 
 document.addEventListener("DOMContentLoaded", () => {
   new Accordion(".accordion-container", {
@@ -18,9 +18,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // Default parameters
     slidesPerView: 2,
         spaceBetween: 0,
-    autoplay: {
-   delay: 5000,},
-    centeredSlides: false,
     slideToClickedSlide: true,
     // Responsive breakpoints
     breakpoints: {
@@ -41,7 +38,9 @@ document.addEventListener("DOMContentLoaded", () => {
     keyboard: {
       enabled: true,
       onlyInViewport: true,
-    },
+      },
+    autoplay: {
+   delay: 5000,},
     grabCursor: true,
   });
 });
