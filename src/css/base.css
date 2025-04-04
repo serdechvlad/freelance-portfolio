@@ -18,6 +18,7 @@
   --invalid-form: #e74a3b;
   --white: #fafafa;
   --transition-color: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-bg-color: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   --transition-background-color: background-color 250ms
     cubic-bezier(0.4, 0, 0.2, 1);
   --transition-transform: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);

@@ -13,9 +13,15 @@
 .nav-link {
   display: none;
 }
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+}
 .header-container {
   padding-top: 32px;
-  padding-bottom: 100px;
 }
 .header-nav {
   display: flex;
