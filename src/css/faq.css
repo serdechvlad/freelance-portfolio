@@ -68,6 +68,9 @@
   }
 }
 @media only screen and (min-width: 1440px) {
+  .faq-container {
+    margin-bottom: 164px;
+  }
   .faq-list {
     display: flex;
     flex-wrap: wrap;
@@ -89,4 +92,10 @@
   .faq-list .faq-item:nth-child(5n) {
     border-bottom: 1px solid rgba(250, 250, 250, 0.2);
   }
+  .faq-list .faq-item:nth-last-child(1) {
+    padding-bottom: 32px;
+  }
+  /* .faq-list .faq-item .open-btn:nth-last-child(6) {
+    padding-right: 171px;
+  } */
 }
