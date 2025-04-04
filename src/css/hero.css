@@ -1,5 +1,6 @@
 /* mobile styles */
 .hero {
+  position: relative;
   padding-top: 282px;
   padding-bottom: 32px;
   background-image: image-set(
