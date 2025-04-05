@@ -1,13 +1,12 @@
-import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
-
+import { enableBodyScroll, disableBodyScroll } from 'body-scroll-lock';
+// const bodyScrollLock = require('body-scroll-lock');
+// const disableBodyScroll = bodyScrollLock.disableBodyScroll;
+// const enableBodyScroll = bodyScrollLock.enableBodyScroll;
 (() => {
-  // добавили доп класс на контейнер менюшки
   const mobileMenu = document.querySelector('.js-menu-container');
-  // добавили доп класс на кнопку открывать менюшку
   const openMenuBtn = document.querySelector('.js-open-menu');
-  // добавили доп класс на кнопку закрывать менюшку
   const closeMenuBtn = document.querySelector('.js-close-menu');
-  // добавили доп класс что бы закрыть после нажатия на ссылку
+
   const menuLinks = document.querySelectorAll('.mobile-modal-link');
   const toggleMenu = () => {
     const isMenuOpen =
@@ -15,18 +14,17 @@ import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
     openMenuBtn.setAttribute('aria-expanded', !isMenuOpen);
     mobileMenu.classList.toggle('is-open');
 
-    const scrollLockMethod = !isMenuOpen ? disableBodyScroll : enableBodyScroll;
-    bodyScrollLock[scrollLockMethod](document.body);
+    if (!isMenuOpen) {
+      disableBodyScroll(document.body);
+    } else {
+      enableBodyScroll(document.body);
+    }
   };
-  //  добавили что бы закрывалось при нажатии на ссылку
   menuLinks.forEach(menuLink => {
     menuLink.addEventListener('click', toggleMenu);
   });
-
-  // стандартно из скрипта от Репеты
   openMenuBtn.addEventListener('click', toggleMenu);
   closeMenuBtn.addEventListener('click', toggleMenu);
-  // Close the mobile menu on wider screens if the device orientation changes
   window.matchMedia('(min-width: 768px)').addEventListener('change', e => {
     if (!e.matches) return;
     mobileMenu.classList.remove('is-open');
