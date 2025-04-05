@@ -1,50 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Reviews</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-    />
-    <link rel="stylesheet" href="../css/reviews.css" />
-  </head>
-  <body>
-    <section class="reviews-section" aria-labelledby="reviews-heading">
-      <h2 id="reviews-heading" class="reviews-title">REVIEWS</h2>
+<section class="reviews-section">
+  <div class="container">
+    <h2 id="reviews" class="reviews-title">REVIEWS</h2>
 
-      <div class="swiper reviews-swiper">
-        <ul class="swiper-wrapper reviews-list" role="list">
-          <!-- Слайды будут добавлены через JS -->
-        </ul>
+    <div class="swiper reviews-swiper">
+      <ul class="swiper-wrapper reviews-list"></ul>
 
-        <div class="swiper-controls">
-          <button class="swiper-button-prev" aria-label="Previous reviews">
-            <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
-              <path
-                d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"
-              />
-            </svg>
-          </button>
-          <button class="swiper-button-next" aria-label="Next reviews">
-            <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
-              <path
-                d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"
-              />
-            </svg>
-          </button>
-        </div>
-      </div>
-
-      <div class="reviews-fallback" style="display: none">
-        <p>Not found</p>
-      </div>
-    </section>
-
-    <div class="error-notification" style="display: none"></div>
-
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="../js/reviews.js"></script>
-  </body>
-</html>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+  </div>
+</section>

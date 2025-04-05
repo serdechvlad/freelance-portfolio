@@ -1,148 +1,152 @@
+import Swiper from 'swiper/bundle';
+import 'swiper/swiper-bundle.css';
+import { getReviews } from './rew.js';
+
+const reviewsList = document.querySelector('.reviews-list');
+const nextButton = document.querySelector('.swiper-button-next');
+const prevButton = document.querySelector('.swiper-button-prev');
+const swiperContainer = document.querySelector('.swiper');
+
 document.addEventListener('DOMContentLoaded', async () => {
-  const reviewsContainer = document.querySelector('.reviews-swiper');
-  const fallbackElement = document.querySelector('.reviews-fallback');
-  const errorNotification = document.querySelector('.error-notification');
-
   try {
-    // 1. Загрузка данных
-    const reviews = await loadReviews();
+    const response = await getReviews();
 
-    // 2. Проверка наличия данных
-    if (!reviews || !Array.isArray(reviews) || reviews.length === 0) {
-      showFallback();
-      return;
+    if (!response || !response.data || response.data.length === 0) {
+      throw new Error('No reviews data received');
     }
 
-    // 3. Отрисовка отзывов
-    renderReviews(reviews);
+    renderReviewsCards(response.data);
     initSwiper();
   } catch (error) {
-    console.error('Ошибка при загрузке отзывов:', error);
-    showError('Failed to load reviews. Please try again later.');
-    showFallback();
-  }
-
-  // Функция загрузки данных
-  async function loadReviews() {
-    // Ваши данные
-    return [
-      {
-        _id: 1,
-        author: 'Natalia',
-        avatar_url: 'https://ftp.goit.study/img/avatars/4.jpg',
-        review:
-          'Work with was extraordinary! He turned out to be a very competent and responsible specialist. The projects were completed on time and the result exceeded my expectations.',
-      },
-      {
-        _id: 2,
-        author: 'Dmytro',
-        avatar_url: 'https://ftp.goit.study/img/avatars/5.jpg',
-        review:
-          'I have the honor to recommend him as an exceptional professional in his field. His knowledge and expertise are undeniable. Cooperation with him always brings impressive results.',
-      },
-      {
-        _id: 3,
-        author: 'Anna',
-        avatar_url: 'https://ftp.goit.study/img/avatars/6.jpg',
-        review:
-          'The developed project impresses with its quality and efficiency. The code is cleanly written and the functionality exceeds expectations. Extremely satisfied with the cooperation!',
-      },
-      {
-        _id: 4,
-        author: 'Ivetta',
-        avatar_url: 'https://ftp.goit.study/img/avatars/8.jpg',
-        review:
-          "It's not the will to win that matters—everyone has that. It's the will to prepare to win that matters.",
-      },
-      {
-        _id: 5,
-        author: 'Andriy',
-        avatar_url: 'https://ftp.goit.study/img/avatars/9.jpg',
-        review:
-          'Working with him was an absolute pleasure. He demonstrated exceptional professionalism and skill in handling our project. Not only did he meet all deadlines, but he also went above and beyond to ensure the final product was flawless. Highly recommend his services.',
-      },
-      {
-        _id: 6,
-        author: 'Eduard',
-        avatar_url: 'https://ftp.goit.study/img/avatars/11.jpg',
-        review:
-          "I couldn't be happier with the outcome of our collaboration. He proved to be a reliable and proficient expert. The results speak for themselves - impeccable work delivered in a timely manner. Looking forward to future projects together!",
-      },
-    ];
-  }
-
-  // Рендер отзывов
-  function renderReviews(reviews) {
-    const listElement = document.querySelector('.reviews-list');
-
-    listElement.innerHTML = reviews
-      .map(
-        review => `
-      <li class="swiper-slide" tabindex="0" role="listitem">
-        <div class="review-avatar">
-          <img src="${review.avatar_url}" 
-               alt="${review.author} avatar" 
-               width="48" 
-               height="48"
-               loading="lazy">
-        </div>
-        <h3 class="review-author">${review.author}</h3>
-        <p class="review-text">${review.review}</p>
-      </li>
-    `
-      )
-      .join('');
-  }
-
-  // Инициализация Swiper
-  function initSwiper() {
-    const swiper = new Swiper('.reviews-swiper', {
-      slidesPerView: 'auto',
-      spaceBetween: 20,
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-      a11y: {
-        enabled: true,
-        prevSlideMessage: 'Previous review',
-        nextSlideMessage: 'Next review',
-      },
-      keyboard: {
-        enabled: true,
-        onlyInViewport: true,
-      },
-      breakpoints: {
-        320: { slidesPerView: 1 },
-        768: { slidesPerView: 2 },
-        1024: { slidesPerView: 4 },
-      },
-    });
-
-    // Настройка навигации с клавиатуры
-    const slides = document.querySelectorAll('.swiper-slide');
-    slides.forEach((slide, index) => {
-      slide.addEventListener('keydown', e => {
-        if (e.key === 'ArrowRight') {
-          swiper.slideNext();
-        } else if (e.key === 'ArrowLeft') {
-          swiper.slidePrev();
-        }
-      });
-    });
-  }
-
-  function showFallback() {
-    reviewsContainer.style.display = 'none';
-    fallbackElement.style.display = 'block';
-  }
-
-  function showError(message) {
-    errorNotification.textContent = message;
-    errorNotification.style.display = 'block';
-
-    setTimeout(() => {
-      errorNotification.style.display = 'none';
-    }, 5000);
+    console.error('Error loading reviews:', error);
+    showErrorNotification();
+    renderFallbackMessage();
   }
 });
+
+function initSwiper() {
+  const swiper = new Swiper('.swiper', {
+    loop: false,
+    slidesPerView: 1,
+    spaceBetween: 30,
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    keyboard: {
+      enabled: true,
+      onlyInViewport: true,
+    },
+    a11y: {
+      prevSlideMessage: 'Попередній відгук',
+      nextSlideMessage: 'Наступний відгук',
+      firstSlideMessage: 'Це перший відгук',
+      lastSlideMessage: 'Це останній відгук',
+      paginationBulletMessage: 'Перейти до відгуку {{index}}',
+    },
+    on: {
+      init: function () {
+        updateButtonStates(this);
+      },
+      slideChange: function () {
+        updateButtonStates(this);
+      },
+    },
+    breakpoints: {
+      375: {
+        slidesPerView: 1,
+      },
+      768: {
+        slidesPerView: 2,
+      },
+      1440: {
+        slidesPerView: 4,
+      },
+    },
+  });
+
+  // Keyboard handlers
+  document.addEventListener('keydown', e => {
+    if (
+      document.activeElement === nextButton ||
+      document.activeElement === prevButton
+    ) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        if (document.activeElement === nextButton && !nextButton.disabled) {
+          swiper.slideNext();
+        } else if (
+          document.activeElement === prevButton &&
+          !prevButton.disabled
+        ) {
+          swiper.slidePrev();
+        }
+      }
+    }
+  });
+}
+
+function renderReviewsCards(cards) {
+  const markup = cards
+    .map(
+      ({ author, avatar_url, review }) => `
+      <li class="swiper-slide" role="group" aria-label="Відгук">
+        <img src="${avatar_url}" alt="${author}" width="48" height="48" loading="lazy">
+        <h3>${author}</h3>
+        <p>${review}</p>
+      </li>
+    `
+    )
+    .join('');
+  reviewsList.innerHTML = markup;
+}
+
+function renderFallbackMessage() {
+  swiperContainer.style.display = 'none'; // Ховаємо слайдер
+
+  const fallbackContainer = document.createElement('div');
+  fallbackContainer.className = 'reviews-fallback';
+  fallbackContainer.textContent = 'Not found';
+  fallbackContainer.setAttribute('aria-live', 'polite');
+
+  document.querySelector('.reviews-section').appendChild(fallbackContainer);
+}
+
+function showErrorNotification() {
+  const notification = document.createElement('div');
+  notification.className = 'error-notification';
+  notification.textContent =
+    'Помилка завантаження відгуків. Будь ласка, спробуйте пізніше.';
+  notification.setAttribute('role', 'alert');
+  notification.setAttribute('aria-live', 'assertive');
+
+  document.body.appendChild(notification);
+
+  // Автоматичне зникнення повідомлення через 5 секунд
+  setTimeout(() => {
+    notification.style.opacity = '0';
+    setTimeout(() => notification.remove(), 500);
+  }, 5000);
+}
+
+function updateButtonStates(swiper) {
+  if (swiper.isBeginning) {
+    prevButton.disabled = true;
+    prevButton.setAttribute('aria-disabled', 'true');
+    prevButton.classList.add('swiper-button-disabled');
+  } else {
+    prevButton.disabled = false;
+    prevButton.setAttribute('aria-disabled', 'false');
+    prevButton.classList.remove('swiper-button-disabled');
+  }
+
+  if (swiper.isEnd) {
+    nextButton.disabled = true;
+    nextButton.setAttribute('aria-disabled', 'true');
+    nextButton.classList.add('swiper-button-disabled');
+  } else {
+    nextButton.disabled = false;
+    nextButton.setAttribute('aria-disabled', 'false');
+    nextButton.classList.remove('swiper-button-disabled');
+  }
+}
