@@ -191,6 +191,15 @@ textarea.invalid {
   letter-spacing: -0.02em;
   color: #fafafa;
 }
+.work-list-email a,
+.work-list-tel a {
+  font-size: 14px;
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  color: #fafafa;
+  text-decoration: none;
+}
+
 .modal {
   position: fixed;
   top: 0;
