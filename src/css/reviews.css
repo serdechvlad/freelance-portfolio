@@ -1,4 +1,4 @@
-/* Base styles for reviews section */
+/* Основные стили */
 .reviews-section {
   padding: 80px 0;
   background-color: #1c1d20;
@@ -7,183 +7,165 @@
 .container {
   max-width: 1440px;
   margin: 0 auto;
-  padding: 0 15px;
+  padding: 0 16px;
 }
 
 .reviews-title {
   font-size: 16px;
-  font-weight: 700;
-  text-align: left;
-  margin-bottom: 60px;
-  color: #fafafa;
-  opacity: 40%;
+  font-weight: 500;
+  color: rgba(250, 250, 250, 0.4);
   text-transform: uppercase;
   letter-spacing: -0.02em;
-  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   margin-bottom: 32px;
 }
 
-/* Swiper container styles */
+/* Контейнер слайдера */
 .reviews-swiper {
   position: relative;
-  overflow: hidden;
-  padding: 20px 0;
+  padding: 0 52px;
 }
 
-.reviews-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-/* Individual slide styles */
+/* Карточка отзыва */
 .swiper-slide {
-  background-color: #1c1d20;
-  border-radius: 12px;
-  padding: 40px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-  height: auto;
+  border: 1px solid rgba(250, 250, 250, 0.2);
+  border-radius: 24px;
+  padding: 32px;
+  height: 302px; /* Фиксированная высота */
+  background-color: transparent;
+  display: flex;
+
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+  min-height: 302px; /* Добавляем минимальную высоту */
+  height: auto !important;
+
+  flex-direction: column;
+  justify-content: space-between;
+}
+.swiper-slide img {
+  border-radius: 10px;
+  object-fit: cover;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 16px;
+  display: block;
+}
+/* Контейнер контента с ограничением по высоте */
+.swiper-slide-content {
+  height: 100%;
   display: flex;
   flex-direction: column;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: 1px solid #fafafa;
-  padding: 32px;
-  padding-left: 24px;
-  padding-right: 24px;
 }
 
+/* Заголовок (фиксированная высота) */
 .swiper-slide h3 {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 600;
-  margin: 0 0 15px 0;
-  color: #343a40;
+  color: #fafafa;
+  margin: 0 0 16px 0;
+  flex-shrink: 0; /* Запрет сжатия */
 }
 
+/* Текст отзыва (гибкий блок) */
 .swiper-slide p {
   font-size: 16px;
-  line-height: 1.6;
-  color: #495057;
+  line-height: 1.5;
+  color: rgba(250, 250, 250, 0.6);
   margin: 0;
-  flex-grow: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 5; /* Ограничение строк */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-grow: 1; /* Занимает доступное пространство */
 }
 
-.swiper-slide img {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 20px;
-  border: 2px solid #e9ecef;
+/* Ховер-эффект */
+.swiper-slide:hover {
+  border-color: #fafafa;
+  transform: translateY(-4px);
 }
 
-/* Navigation buttons */
+/* Кнопки навигации */
 .swiper-button-prev,
 .swiper-button-next {
-  width: 50px;
-  height: 50px;
-  background-color: #fff;
+  width: 52px;
+  height: 52px;
+  background: rgba(250, 250, 250, 0.1);
   border-radius: 50%;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
   transition: all 0.3s ease;
+  position: absolute;
   top: 50%;
   transform: translateY(-50%);
+  z-index: 10;
 }
 
 .swiper-button-prev {
-  left: -25px;
+  left: -10px;
 }
 
 .swiper-button-next {
-  right: -25px;
+  right: -10px;
 }
 
-.swiper-button-prev::after,
-.swiper-button-next::after {
-  font-size: 18px;
-  color: #495057;
-  font-weight: bold;
-}
-
-/* Hover effects */
-.swiper-slide:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-}
-
-.swiper-button-prev:hover,
-.swiper-button-next:hover {
-  background-color: #f1f3f5;
-}
-
-/* Disabled state */
-.swiper-button-disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-  pointer-events: none;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
+/* Адаптивность */
+@media (max-width: 767px) {
   .reviews-section {
-    padding: 60px 0;
-  }
-
-  .reviews-title {
-    font-size: 28px;
-    margin-bottom: 40px;
+    padding: 64px 0;
   }
 
   .swiper-slide {
-    padding: 30px;
-  }
-
-  .swiper-button-prev,
-  .swiper-button-next {
-    width: 40px;
-    height: 40px;
-  }
-
-  .swiper-button-prev {
-    left: -15px;
-  }
-
-  .swiper-button-next {
-    right: -15px;
-  }
-}
-
-@media (max-width: 576px) {
-  .swiper-slide {
-    padding: 25px 20px;
+    padding: 24px;
+    height: 302px; /* Сохраняем высоту */
   }
 
   .swiper-slide h3 {
-    font-size: 20px;
+    font-size: 18px;
+    margin-bottom: 12px;
   }
 
   .swiper-slide p {
     font-size: 15px;
-  }
-
-  .swiper-slide img {
-    width: 50px;
-    height: 50px;
-  }
-}
-@media (max-width: 1024px) {
-  .swiper-slide {
-    width: calc(50% - 10px) !important;
-  }
-}
-
-@media (max-width: 768px) {
-  .swiper-slide {
-    width: 100% !important;
+    -webkit-line-clamp: 4; /* Меньше строк на мобильных */
   }
 
   .swiper-button-prev,
   .swiper-button-next {
-    width: 40px;
-    height: 40px;
+    display: none;
+  }
+}
+@media (max-width: 520px) {
+  .swiper-slide {
+    height: auto !important; /* Отключаем фиксированную высоту */
+    min-height: 302px; /* Сохраняем минимальную высоту */
+    padding: 24px;
+  }
+
+  .swiper-slide-content {
+    height: auto;
+  }
+
+  .swiper-slide p {
+    -webkit-line-clamp: unset !important; /* Отключаем обрезку текста */
+    display: block !important;
+    overflow: visible !important;
+  }
+}
+
+/* Версия для планшетов и десктопов */
+@media (min-width: 521px) {
+  .swiper-slide {
+    height: 302px; /* Фиксированная высота */
+  }
+
+  .swiper-slide p {
+    -webkit-line-clamp: 5; /* Обрезаем текст после 5 строк */
+    display: -webkit-box;
+    overflow: hidden;
   }
 }
