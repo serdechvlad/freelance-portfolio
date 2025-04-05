@@ -4,31 +4,16 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(20, 20, 20, 0.4);
-  z-index: 998;
+  background: black;
+  z-index: 999;
   opacity: 0;
   pointer-events: none;
   transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1);
 }
-.burger-menu {
-  position: fixed;
-  background-color: black;
-  width: 100%;
-  z-index: 999;
-  opacity: 1;
-  pointer-events: none;
-  overflow: hidden;
-  transition: right 1s cubic-bezier(0.4, 0, 0.2, 1),
-    opacity 1s cubic-bezier(0.4, 0, 0.2, 1),
-    visibility 1s cubic-bezier(0.4, 0, 0.2, 1);
-}
-.is-open {
+.overlay.is-open {
+  visibility: visible;
   opacity: 1;
   pointer-events: auto;
-  right: 0;
-}
-.is-closing {
-  right: -100%; /* Меню заезжает вправо */
 }
 .burger-container {
   position: relative;
@@ -57,17 +42,10 @@
 .burger-menu-list-item {
   display: inline-block;
   text-align: center;
-  border: 1px solid var(--white-text);
   border-radius: 12px;
   width: 112px;
   text-decoration: underline;
   transition: var(--transition-background-color), var(--transition-color);
-}
-
-.burger-menu-list-item:hover,
-.burger-menu-list-item:focus {
-  background-color: var(--white-text);
-  color: var(--primary-brand);
 }
 
 .burger-link {
@@ -76,9 +54,4 @@
   background-color: var(--green);
   text-transform: uppercase;
   transition: var(--transition-background-color), var(--transition-color);
-}
-.burger-submit-button:hover,
-.burger-submit-button:focus {
-  background-color: var(--white-text);
-  color: var(--primary-brand);
 }
