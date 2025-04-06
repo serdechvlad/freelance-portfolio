@@ -213,12 +213,14 @@
 }
 
 @media screen and (min-width: 1440px) {
+ #accordion-about .ac .ac-panel {
+    padding: 0 68px 32px 696px;
+  }
+
   #accordion-about .ac:not(:first-child) .ac-panel {
-    padding: 0 215px 32px 696px;
+    padding-right: 215px;
   }
-  #accordion-about .ac .ac-panel {
-    padding-right: 68px;
-  }
+  
   #accordion-about .ac.is-active .ac-panel .ac-text:first-child {
     padding-top: 8px;
   }
@@ -258,12 +260,20 @@
   transform: rotate(180deg);
 }
 
-#accordion-about .icon-span:hover {
-  color: var(--green-hover);
+#accordion-about .ac-trigger:hover .icon-span {
+  border-color: var(--green-hover);
 }
 
-#accordion-about .icon-accordion:hover {
+#accordion-about .ac-trigger:hover .icon-accordion {
   --color1: var(--green-hover);
+}
+
+#accordion-about .ac-trigger:active .icon-span {
+  border-color: var(--green);
+}
+
+#accordion-about .ac-trigger:active .icon-accordion {
+  --color1: var(--green);
 }
 
 .container-swiper {
