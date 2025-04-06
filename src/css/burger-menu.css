@@ -4,7 +4,10 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: black;
+  background-image: image-set(
+    url('../img/menu/Menu.png') 1x,
+    url('../img/menu/Menu@2x.png') 2x
+  );
   z-index: 999;
   opacity: 0;
   pointer-events: none;
