@@ -1,9 +1,11 @@
 import Accordion from 'accordion-js';
 import 'accordion-js/dist/accordion.min.css';
 import Swiper from 'swiper';
-import { Navigation } from 'swiper/modules';
+Swiper.use([Keyboard]);
+import { Navigation, Autoplay, Keyboard, EffectCreative } from 'swiper/modules';
 import 'swiper/css';
 //import 'swiper/css/navigation';
+import 'swiper/css/effect-creative';
 
 document.addEventListener('DOMContentLoaded', () => {
   new Accordion('#accordion-about', {
@@ -13,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   const swiper = new Swiper('#swiper-about', {
-    modules: [Navigation],
+    modules: [Navigation, Autoplay, Keyboard, EffectCreative],
     // Default parameters
     slidesPerView: 2,
     spaceBetween: 0,
@@ -37,8 +39,21 @@ document.addEventListener('DOMContentLoaded', () => {
       onlyInViewport: true,
       pageUpDown: true,
     },
+    effect: 'creative',
+    creativeEffect: {
+      limitProgress: 6,
+      prev: {
+        translate: ['-100%', 0, 0],
+        rotate: [0, 0, -360],
+      },
+      next: {
+        translate: ['100%', 0, 0],
+        rotate: [0, 0, 360],
+      },
+    },
+    speed: 1400,
     autoplay: {
-      delay: 5000,
+      delay: 2500,
     },
     grabCursor: true,
   });
