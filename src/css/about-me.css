@@ -42,6 +42,7 @@
   padding: 24px 24px 212px;
   margin-bottom: 16px;
   background-color: var(--cards);
+  border-radius: 24px;
 }
 
 @media screen and (min-width: 375px) {
@@ -306,7 +307,7 @@
   font-size: 20px;
   line-height: 100%;
   letter-spacing: -0.02em;
-  text-shadow: -1px 1px 3px var(--background);
+  text-shadow: -1px 2px 3px var(--background);
   display: flex !important;
   justify-content: center;
   align-items: center;
