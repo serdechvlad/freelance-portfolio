@@ -31,7 +31,7 @@
 }
 .work-together-title {
   font-family: sans-serif;
-  font-weight: 600;
+  font-weight: 500;
   font-size: 40px;
   line-height: 1.2;
   letter-spacing: -0.03em;
@@ -71,25 +71,29 @@ form {
   position: relative;
 }
 
-.input-wrapper input,
+/* .input-wrapper input,
 .input-wrapper textarea {
   border: none;
   outline: none;
-  padding-bottom: 16px;
+ 
   background: transparent;
   color: #fff;
   font-size: 16px;
-  width: 100%;
-}
-.email-wrapper,
-.comments-wrapper {
+  max-width: 100%;
+} */
+.email,
+.comments {
   position: relative;
-  margin-bottom: 24px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 20px;
+  width: 343px;
+  height: 44px;
 }
 .email-wrapper label,
 .comments-wrapper label {
-  display: block;
-  margin-bottom: 8px;
   font-size: 14px;
   color: rgba(250, 250, 250, 0.6);
   font-weight: 500;
@@ -99,10 +103,21 @@ form {
 .comments-wrapper:hover label {
   color: #fafafa;
 }
-.email-wrapper input,
+.email-wrapper input {
+  width: 100%;
+  padding-bottom: 20px;
+  border: none;
+  border-bottom: 2px solid rgba(250, 250, 250, 0.6);
+  background: transparent;
+  font-size: 16px;
+  color: #ffffff6f;
+  outline: none;
+  resize: none;
+  transition: border-color 0.3s ease;
+}
 .comments-wrapper textarea {
   width: 100%;
-  padding: 8px 0;
+  padding-bottom: 2px;
   border: none;
   border-bottom: 2px solid rgba(250, 250, 250, 0.6);
   background: transparent;
@@ -117,7 +132,7 @@ form {
   color: rgba(250, 250, 250, 0.4);
 }
 .email-wrapper.success input,
-.comments-wrapper.success textarea  {
+.comments-wrapper.success textarea {
   border-bottom-color: #c6e327;
 }
 .email-wrapper.success .email-message,
@@ -137,39 +152,11 @@ form {
   display: block;
 }
 
-.email-message,
-.comments-message {
-  font-size: 12px;
-  margin-top: 6px;
-  font-weight: 500;
-  display: none;
-}
-/* .email-wrapper::after,
-.comments-wrapper::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  height: 2px;
-  width: 100%;
-  background-color: #c6e327;
-  border-radius: 1px;
-}
 .email-wrapper input:focus ~ .email-wrapper::after,
 .comments-wrapper textarea:focus ~ .comments-wrapper::after {
-  background-color: #fff; 
+  background-color: #fff;
 }
-button {
-  background-color: #c6e327;
-  color: #fff;
-  padding: 10px;
-  border: none;
-  border-radius: 50%;
-  cursor: pointer;
-}
-button:hover {
-  background-color: #596808;
-}
+
 .validation-message {
   font-size: 14px;
   margin-top: 8px;
@@ -215,6 +202,17 @@ textarea.invalid {
 .hidden {
   display: none;
 }
+button {
+  background-color: #c6e327;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #596808;
+}
 
 .btn-work {
   width: 100px;
@@ -228,7 +226,7 @@ textarea.invalid {
   flex-direction: row;
   gap: 4px;
   width: 300px;
-  height: 37px;
+
   text-align: center;
 }
 
@@ -241,12 +239,12 @@ textarea.invalid {
   border: 1px solid rgba(247, 236, 236, 0.949);
   border-radius: 60px;
   padding: 10px 12px;
-  width: 178px;
-  height: 37px;
+  min-width: 178px;
+  min-height: 37px;
   font-weight: 300;
   font-size: 14px;
   letter-spacing: -0.02em;
-  color: #fafafa;
+  color: #fafafaa1;
 }
 .work-list-tel {
   display: flex;
@@ -257,21 +255,26 @@ textarea.invalid {
   border: 1px solid rgba(247, 236, 236, 0.949);
   border-radius: 60px;
   padding: 10px 12px;
-  width: 118px;
-  height: 37px;
+  min-width: 118px;
+  min-height: 37px;
 
   letter-spacing: -0.02em;
-  color: #fafafa;
+  color: #fafafaa1;
 }
 .work-list-email a,
 .work-list-tel a {
   font-size: 14px;
   font-weight: 300;
   letter-spacing: -0.02em;
-  color: #fafafa;
+  color: #fafafaa1;
   text-decoration: none;
 }
-
+.work-list-email:hover,
+.work-list-email:focus,
+.work-list-tel:hover,
+.work-list-tel:focus {
+  color: #fafafa;
+}
 .backdrop {
   position: fixed;
 
@@ -369,7 +372,6 @@ textarea.invalid {
 
     padding-top: 80px;
     padding-left: 32px;
-    padding-bottom: 64px;
   }
 
   .title-work {
@@ -413,7 +415,7 @@ textarea.invalid {
     display: flex;
     flex-direction: row;
     gap: 20px;
-    align-items: baseline;
+    align-items: stretch;
   }
   .email-wrapper {
     width: 245px;
@@ -432,20 +434,20 @@ textarea.invalid {
   .contact-info {
     padding-top: 78px;
     padding-bottom: 169px;
-    min-width: 408px;
+    width: 100%;
     display: flex;
     flex-direction: row;
     gap: 8px;
   }
   .work-list-email {
-    width: 239px;
-    height: 55px;
+    min-width: 239px;
+    min-height: 55px;
 
     padding: 18px 32px;
   }
   .work-list-tel {
-    width: 171px;
-    height: 55px;
+    min-width: 171px;
+    min-height: 55px;
   }
   .modal {
     max-width: 492px;

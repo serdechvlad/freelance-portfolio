@@ -14,52 +14,31 @@ const commentsMessage = document.querySelector('.comments-message');
 
 
 
-  emailInput.addEventListener('input', () => {
-  const value = emailInput.value.trim();
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+//   emailInput.addEventListener('input', () => {
+//   const value = emailInput.value.trim();
+//   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-  if (value === '') {
-    emailWrapper.classList.remove('success', 'error');
-    emailMessage.textContent = '';
-    emailMessage.style.display = 'none';
-    return;
-  }
+//   if (value === '') {
+//     emailWrapper.classList.remove('success', 'error');
+//     emailMessage.textContent = '';
+//     emailMessage.style.display = 'none';
+//     return;
+//   }
 
-  if (emailRegex.test(value)) {
-    emailWrapper.classList.add('success');
-    emailWrapper.classList.remove('error');
-    emailMessage.textContent = 'Success!';
-    emailMessage.style.display = 'block';
-  } else {
-    emailWrapper.classList.add('error');
-    emailWrapper.classList.remove('success');
-    emailMessage.textContent = 'Invalid email, try again';
-    emailMessage.style.display = 'block';
-  }
-});
+//   if (emailRegex.test(value)) {
+//     emailWrapper.classList.add('success');
+//     emailWrapper.classList.remove('error');
+//     emailMessage.textContent = 'Success!';
+//     emailMessage.style.display = 'block';
+//   } else {
+//     emailWrapper.classList.add('error');
+//     emailWrapper.classList.remove('success');
+//     emailMessage.textContent = 'Invalid email, try again';
+//     emailMessage.style.display = 'block';
+//   }
+// });
   
-  commentsTextarea.addEventListener('input', () => {
-  const value = commentsTextarea.value.trim();
 
-  if (value === '') {
-    commentsWrapper.classList.remove('success', 'error');
-    commentsMessage.textContent = '';
-    commentsMessage.style.display = 'none';
-    return;
-  }
-
-  if (value.length >= 10) {
-    commentsWrapper.classList.add('success');
-    commentsWrapper.classList.remove('error');
-    commentsMessage.textContent = 'Success!';
-    commentsMessage.style.display = 'block';
-  } else {
-    commentsWrapper.classList.add('error');
-    commentsWrapper.classList.remove('success');
-    commentsMessage.textContent = 'Please enter at least 10 characters';
-    commentsMessage.style.display = 'block';
-  }
-});
   // Функція для валідації email
   function validateEmail() {
     const emailValue = emailInput.value;
@@ -78,7 +57,28 @@ const commentsMessage = document.querySelector('.comments-message');
       messageElement.classList.add('error');
     }
   }
+//   commentsTextarea.addEventListener('input', () => {
+//   const value = commentsTextarea.value.trim();
 
+//   if (value === '') {
+//     commentsWrapper.classList.remove('success', 'error');
+//     commentsMessage.textContent = '';
+//     commentsMessage.style.display = 'none';
+//     return;
+//   }
+
+//   if (value.length >= 10) {
+//     commentsWrapper.classList.add('success');
+//     commentsWrapper.classList.remove('error');
+//     commentsMessage.textContent = 'Success!';
+//     commentsMessage.style.display = 'block';
+//   } else {
+//     commentsWrapper.classList.add('error');
+//     commentsWrapper.classList.remove('success');
+//     commentsMessage.textContent = 'Please enter at least 10 characters';
+//     commentsMessage.style.display = 'block';
+//   }
+// });
   // Валідація під час введення
   emailInput.addEventListener('input', validateEmail);
 
