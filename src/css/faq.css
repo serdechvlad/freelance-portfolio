@@ -91,7 +91,8 @@
   transition: var(--transition-transform), var(--transition-bg-color);
 }
 .faq-icon:hover {
-  border-color: var(--white);
+  border-color: var(--green-hover);
+  stroke: var(--green-hover);
 }
 .ac-trigger[aria-expanded='true'] .faq-icon {
   transform: rotate(180deg);
