@@ -7,7 +7,6 @@ import { Navigation, Keyboard } from 'swiper/modules';
 const projectsSwiper = new Swiper('#projects-swiper', {
   modules: [Navigation, Keyboard],
   slidesPerView: 1,
-  spaceBetween: 100,
   navigation: {
     nextEl: '.projects-button-next',
     prevEl: '.projects-button-prev',
@@ -40,8 +39,8 @@ const projectsSwiper = new Swiper('#projects-swiper', {
   },
 });
 
-export const button = document.querySelectorAll('.projects-btn');
-const url = 'https://github.com/ValeraKiorkiian/freelance-portfolio/tree/main';
-button.addEventListener('click', () => {
-  window.open(url, '_blank');
-});
+// export const button = document.querySelectorAll('.projects-btn');
+// const url = 'https://github.com/ValeraKiorkiian/freelance-portfolio/tree/main';
+// button.addEventListener('click', () => {
+//   window.open(url, '_blank');
+// });
