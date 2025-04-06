@@ -31,8 +31,8 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     loop: true,
     navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
+      nextEl: '.about-button-next',
+      prevEl: '.about-button-prev',
     },
     keyboard: {
       enabled: true,

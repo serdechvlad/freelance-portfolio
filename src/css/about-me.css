@@ -334,7 +334,7 @@
   background: var(--green);
 }
 
-#swiper-about .swiper-button-next {
+#swiper-about .about-button-next {
   width: 28px;
   height: 28px;
   border-radius: 50%;
@@ -344,7 +344,7 @@
 }
 
 @media screen and (min-width: 768px) {
-  #swiper-about .swiper-button-next {
+  #swiper-about .about-button-next {
     width: 40px;
     height: 40px;
   }
@@ -356,11 +356,11 @@
   }
 }
 
-.swiper-button-next:hover {
+.about-button-next:hover {
   color: var(--green-hover);
 }
 
-.swiper-button-next:active {
+.about-button-next:active {
   color: var(--green);
 }
 
