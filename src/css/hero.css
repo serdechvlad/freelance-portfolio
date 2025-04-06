@@ -69,6 +69,7 @@
   }
   .hero-socials-list {
     justify-content: end;
+    gap: 8px;
   }
   .hero-socials-list-item-link {
     padding: 18px;
