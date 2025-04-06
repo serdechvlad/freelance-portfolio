@@ -6,7 +6,9 @@
 }
 
 .container-work {
+  min-width: 320px;
   max-width: 375px;
+  height: 100%;
   padding: 32px 16px;
 }
 
@@ -79,18 +81,84 @@ form {
   font-size: 16px;
   width: 100%;
 }
+.email-wrapper,
+.comments-wrapper {
+  position: relative;
+  margin-bottom: 24px;
+}
+.email-wrapper label,
+.comments-wrapper label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: rgba(250, 250, 250, 0.6);
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+.email-wrapper:hover label,
+.comments-wrapper:hover label {
+  color: #fafafa;
+}
+.email-wrapper input,
+.comments-wrapper textarea {
+  width: 100%;
+  padding: 8px 0;
+  border: none;
+  border-bottom: 2px solid rgba(250, 250, 250, 0.6);
+  background: transparent;
+  font-size: 16px;
+  color: #ffffff6f;
+  outline: none;
+  resize: none;
+  transition: border-color 0.3s ease;
+}
+.email-wrapper input::placeholder,
+.comments-wrapper textarea::placeholder {
+  color: rgba(250, 250, 250, 0.4);
+}
+.email-wrapper.success input,
+.comments-wrapper.success textarea  {
+  border-bottom-color: #c6e327;
+}
+.email-wrapper.success .email-message,
+.comments-wrapper.success .comments-message {
+  color: #c6e327;
+  display: block;
+}
 
-.email-wrapper::after,
+.email-wrapper.error input,
+.comments-wrapper.error textarea {
+  border-bottom-color: #e74c3c;
+}
+
+.email-wrapper.error .email-message,
+.comments-wrapper.error .comments-message {
+  color: #e74c3c;
+  display: block;
+}
+
+.email-message,
+.comments-message {
+  font-size: 12px;
+  margin-top: 6px;
+  font-weight: 500;
+  display: none;
+}
+/* .email-wrapper::after,
 .comments-wrapper::after {
   content: '';
   position: absolute;
   left: 0;
   bottom: 0;
+  height: 2px;
   width: 100%;
-  height: 1px;
-  background-color: rgba(255, 255, 255, 0.801); /* Білий, але напівпрозорий */
+  background-color: #c6e327;
+  border-radius: 1px;
 }
-
+.email-wrapper input:focus ~ .email-wrapper::after,
+.comments-wrapper textarea:focus ~ .comments-wrapper::after {
+  background-color: #fff; 
+}
 button {
   background-color: #c6e327;
   color: #fff;
@@ -117,17 +185,16 @@ button:hover {
   color: #e74c3c;
 }
 
-/* Стиль для валідації email і textarea */
 input.valid,
 textarea.valid {
-  border-bottom: 1px solid #2ecc71; /* Зелений для правильного вводу */
+  border-bottom: 1px solid #2ecc71;
 }
 
 input.invalid,
 textarea.invalid {
-  border-bottom: 1px solid #e74c3c; /* Червоний для помилок */
+  border-bottom: 1px solid #e74c3c;
 }
-/* Спінер */
+
 .spinner {
   border: 4px solid rgba(255, 255, 255, 0.879);
   border-top: 4px solid #c6e327;
@@ -299,7 +366,7 @@ textarea.invalid {
 
   .container-work {
     max-width: 768px;
-    max-height: 636px;
+
     padding-top: 80px;
     padding-left: 32px;
     padding-bottom: 64px;
@@ -345,8 +412,17 @@ textarea.invalid {
   .input-wrapper {
     display: flex;
     flex-direction: row;
-
-    align-items: flex-start;
+    gap: 20px;
+    align-items: baseline;
+  }
+  .email-wrapper {
+    width: 245px;
+    height: 44px;
+  }
+  .comments-wrapper {
+    width: 245px;
+    height: 44px;
+    padding-right: 32px;
   }
   .btn-work {
     width: 150px;
@@ -384,6 +460,9 @@ textarea.invalid {
   }
 }
 @media only screen and (min-width: 1440px) {
+  .container-work {
+    max-width: 1440px;
+  }
   .title-work {
     max-width: 542px;
     max-height: 146px;
@@ -394,17 +473,12 @@ textarea.invalid {
     font-size: 64px;
     line-height: 72px;
   }
-  .logo-wrapper {
-    width: 70px;
-    height: 70px;
-  }
+
   form {
     padding-left: 169px;
-    width: 418px;
-    height: 55px;
   }
   .input-wrapper {
-    gap: 20px;
+    gap: 32px;
     justify-content: space-between;
   }
   .email-wrapper {
@@ -414,6 +488,7 @@ textarea.invalid {
   .comments-wrapper {
     width: 390px;
     height: 44px;
+    padding-right: 86px;
   }
   .contact-info {
     padding-left: 169px;
