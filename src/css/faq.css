@@ -118,6 +118,11 @@
   .faq-list .faq-item:not(:last-child):after {
     bottom: -42px;
   }
+  .faq-icon {
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+  }
   /* .faq-list .faq-item::after {
     bottom: -42px;
   }
