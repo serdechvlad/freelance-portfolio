@@ -1,38 +1,85 @@
-<section class="reviews-section">
-  <div class="container">
-    <h2 id="reviews" class="reviews-title">REVIEWS</h2>
-
-    <div class="swiper reviews-swiper">
-      <ul class="swiper-wrapper reviews-list">
-        <!-- Карточки будут добавляться динамически через JS -->
-        <!-- Пример одной карточки: -->
-        <li class="swiper-slide">
-          <div class="swiper-slide-content">
-            <h3>Anna</h3>
-            <p>
-              The developed project impresses with its quality and efficiency.
-              The code is clearly written and the functionality exceeds
-              expectations.
-            </p>
-          </div>
-        </li>
-      </ul>
-
-      <!-- Кнопки навигации -->
-      <button
-        class="swiper-button-prev"
-        type="button"
-        aria-label="Previous review"
-      >
-        <svg width="24" height="24" aria-hidden="true">
-          <use href="./icons.svg#arrow-left"></use>
-        </svg>
-      </button>
-      <button class="swiper-button-next" type="button" aria-label="Next review">
-        <svg width="24" height="24" aria-hidden="true">
-          <use href="./icons.svg#arrow-right"></use>
-        </svg>
-      </button>
-    </div>
+<body>
+  <div style="display: none">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      style="position: absolute; width: 0; height: 0; overflow: hidden"
+      aria-hidden="true"
+    >
+      <symbol id="icon-arrow-left" viewBox="0 0 32 32">
+        <path
+          stroke-linejoin="round"
+          stroke-linecap="round"
+          stroke-miterlimit="4"
+          stroke-width="2"
+          d="M26.667 16h-21.333"
+        ></path>
+        <path
+          stroke-linejoin="round"
+          stroke-linecap="round"
+          stroke-miterlimit="4"
+          stroke-width="2"
+          d="M13.333 24l-8-8 8-8"
+        ></path>
+      </symbol>
+      <symbol id="icon-arrow-right" viewBox="0 0 32 32">
+        <path
+          fill="none"
+          stroke="#fafafa"
+          stroke-linejoin="round"
+          stroke-linecap="round"
+          stroke-miterlimit="4"
+          stroke-width="2"
+          d="M5.333 16h21.333"
+        ></path>
+        <path
+          fill="none"
+          stroke="#fafafa"
+          stroke-linejoin="round"
+          stroke-linecap="round"
+          stroke-miterlimit="4"
+          stroke-width="2"
+          d="M18.667 8l8 8-8 8"
+        ></path>
+      </symbol>
+    </svg>
   </div>
-</section>
+
+  <section class="reviews-section">
+    <div class="container">
+      <h2 id="reviews" class="reviews-title">REVIEWS</h2>
+
+      <div class="swiper reviews-swiper">
+        <ul class="swiper-wrapper reviews-list">
+          <li class="swiper-slide">
+            <div class="swiper-slide-content">
+              <h3>Anna</h3>
+              <p>The developed project impresses with its quality...</p>
+            </div>
+          </li>
+        </ul>
+
+        <div class="swiper-navigation">
+          <button
+            class="swiper-button-prev"
+            type="button"
+            aria-label="Previous review"
+          >
+            <svg width="68" height="68" viewBox="0 0 32 32" fill="none">
+              <use xlink:href="#icon-arrow-left"></use>
+            </svg>
+          </button>
+
+          <button
+            class="swiper-button-next"
+            type="button"
+            aria-label="Next review"
+          >
+            <svg width="68" height="68" viewBox="0 0 32 32" fill="none">
+              <use xlink:href="#icon-arrow-right"></use>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>

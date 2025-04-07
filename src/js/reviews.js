@@ -16,13 +16,30 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     renderReviewsCards(response.data);
-    initSwiper();
+    initSwiper(); // инициализируем только после вставки
   } catch (error) {
     console.error('Error loading reviews:', error);
     showErrorNotification();
     renderFallbackMessage();
   }
 });
+
+function renderReviewsCards(cards) {
+  const markup = cards
+    .map(
+      ({ author, avatar_url, review }) => `
+      <li class="swiper-slide" role="group" aria-label="Відгук">
+        <div class="swiper-slide-content">
+          <img src="${avatar_url}" alt="${author}" width="48" height="48" loading="lazy">
+          <h3>${author}</h3>
+          <p>${review}</p>
+        </div>
+      </li>
+    `
+    )
+    .join('');
+  reviewsList.innerHTML = markup;
+}
 
 function initSwiper() {
   const swiper = new Swiper('.swiper', {
@@ -65,7 +82,6 @@ function initSwiper() {
     },
   });
 
-  // Keyboard handlers
   document.addEventListener('keydown', e => {
     if (
       document.activeElement === nextButton ||
@@ -86,23 +102,8 @@ function initSwiper() {
   });
 }
 
-function renderReviewsCards(cards) {
-  const markup = cards
-    .map(
-      ({ author, avatar_url, review }) => `
-      <li class="swiper-slide" role="group" aria-label="Відгук">
-        <img src="${avatar_url}" alt="${author}" width="48" height="48" loading="lazy">
-        <h3>${author}</h3>
-        <p>${review}</p>
-      </li>
-    `
-    )
-    .join('');
-  reviewsList.innerHTML = markup;
-}
-
 function renderFallbackMessage() {
-  swiperContainer.style.display = 'none'; // Ховаємо слайдер
+  swiperContainer.style.display = 'none';
 
   const fallbackContainer = document.createElement('div');
   fallbackContainer.className = 'reviews-fallback';
@@ -122,7 +123,6 @@ function showErrorNotification() {
 
   document.body.appendChild(notification);
 
-  // Автоматичне зникнення повідомлення через 5 секунд
   setTimeout(() => {
     notification.style.opacity = '0';
     setTimeout(() => notification.remove(), 500);
