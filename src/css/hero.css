@@ -9,7 +9,6 @@
   );
   background-repeat: no-repeat;
   background-position: center;
-  /* overflow-x: hidden; */
 }
 .hero-container {
   display: flex;
