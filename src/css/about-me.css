@@ -82,7 +82,7 @@
 }
 
 .about-r-span {
-  color: #ed3b44;
+  color: var(--green);
 }
 
 .about-g-span {
@@ -118,7 +118,8 @@
   box-shadow: 0 1px 0 0 #fafafa33;
 }
 
-#accordion-about .ac:first-child .accordion-container .ac:last-child {
+#accordion-about .ac:first-child,
+#accordion-about .ac:last-child {
   margin-top: 0px;
 }
 
@@ -126,12 +127,6 @@
   #accordion-about .ac {
     margin: 32px 0;
   }
-  #accordion-about .ac:first-child .accordion-container .ac:last-child {
-    margin-top: 0px;
-  }
-}
-
-.active {
 }
 
 #accordion-about .ac.ac-header {
