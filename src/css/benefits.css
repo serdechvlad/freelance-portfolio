@@ -1,0 +1,147 @@
+.benefits {
+  background: var(--background);
+  padding: 32px 0;
+}
+
+@media only screen and (min-width: 768px) {
+  .benefits {
+    padding: 48px 0;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .benefits {
+    padding: 82px 0;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .benefits-left {
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .benefits-right {
+  }
+}
+
+.benefits-title {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: rgba(250, 250, 250, 0.4);
+}
+@media only screen and (min-width: 1440px) {
+  .benefits-title {
+  }
+}
+
+.benefits-content {
+  padding-top: 32px;
+}
+
+@media only screen and (min-width: 1440px) {
+  .benefits-content {
+    padding-top: 0;
+  }
+}
+
+.benefits-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+@media only screen and (min-width: 1440px) {
+  .benefits-list {
+  }
+}
+
+.benefits-item {
+  border-radius: 20px;
+  padding: 24px 24px;
+  max-width: 344px;
+  background-color: var(--cards);
+  cursor: pointer;
+}
+
+@media only screen and (min-width: 768px) {
+  .benefits-item {
+    width: calc((100% - 16px) / 2);
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .benefits-item {
+    max-width: 332px;
+  }
+}
+
+.benefits-icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  width: 48px;
+  height: 48px;
+  background-color: var(--green);
+  margin-bottom: 64px;
+}
+
+.benefits-icon {
+}
+
+.benefits-subtitle {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  color: var(--white);
+  margin-bottom: 8px;
+}
+.benefits-text {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  color: rgba(250, 250, 250, 0.6);
+}
+
+.benefits-link {
+  margin-top: 32px;
+  display: block;
+  border: 1px solid rgba(250, 250, 250, 0.2);
+  padding: 18px 36px;
+  border-radius: 60px;
+  width: 187px;
+  height: 55px;
+  transition: var(--transition-background-color);
+}
+.benefits-link:hover {
+  background-color: var(--green-hover);
+}
+
+/* .benefits-button {
+  margin-top: 32px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 10px;
+
+  border: 1px solid rgba(250, 250, 250, 0.2);
+  border-radius: 60px;
+  padding: 18px 36px;
+  width: 187px;
+  height: 55px;
+} */
+
+/* .benefits-button-txt {
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: -0.02em;
+  color: var(--white);
+} */
