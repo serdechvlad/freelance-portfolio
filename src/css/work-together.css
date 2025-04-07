@@ -131,12 +131,12 @@ form {
   transition: border-color 0.3s ease;
 }
 
-input.valid,
+.email-wrapper input.valid,
 textarea.valid {
   border-bottom: 1px solid #2ecc71;
 }
 
-input.invalid,
+.email-wrapper input.invalid,
 textarea.invalid {
   border-bottom: 1px solid #e74c3c;
 }
@@ -228,7 +228,6 @@ button:hover {
   gap: 10px;
   border: 1px solid rgba(247, 236, 236, 0.167);
   border-radius: 60px;
-  padding: 10px 12px;
   min-width: 118px;
   min-height: 37px;
 
