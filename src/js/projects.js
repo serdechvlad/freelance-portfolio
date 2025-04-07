@@ -8,7 +8,8 @@ import { Navigation, Keyboard } from 'swiper/modules';
 
  const projectsSwiper = new Swiper('#projects-swiper', {
     modules: [Navigation, Keyboard],
-    slidesPerView: 1,
+     slidesPerView: 1,
+    
     spaceBetween: 30,
     navigation: {
         nextEl: '.projects-button-next',
@@ -26,7 +27,8 @@ import { Navigation, Keyboard } from 'swiper/modules';
             // Перевірка на початок і кінець списку
             const prevButton = document.querySelector('.projects-button-prev');
             const nextButton = document.querySelector('.projects-button-next');
-            
+           
+
             if (this.isBeginning) {
                 prevButton.classList.add('swiper-button-disabled');
             } else {
@@ -40,10 +42,17 @@ import { Navigation, Keyboard } from 'swiper/modules';
             }
         },
     },
-});
+ });
 
-export const button = document.querySelector('.projects-btn'); 
+
+
+const buttons = document.querySelectorAll('.projects-btn'); 
+
 const url = 'https://github.com/ValeraKiorkiian/freelance-portfolio/tree/main';
-button.addEventListener('click', () => {
-    window.open(url, '_blank'); 
+
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        window.open(url, '_blank'); 
+    });
 });
+    
