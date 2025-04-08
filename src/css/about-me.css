@@ -369,7 +369,7 @@
 
 .icon-scroll-to-up {
   --color1: rgba(188, 224, 8, 0.582);
-  margin-top: -8px;
+  margin-top: -10px;
 }
 
 .scroll-to-top {
@@ -393,6 +393,7 @@
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s, visibility 0.3s;
+  padding-top: 8px;
 }
 
 @media screen and (min-width: 768px) {
