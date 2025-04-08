@@ -39,8 +39,16 @@ const projectsSwiper = new Swiper('#projects-swiper', {
   },
 });
 
-// export const button = document.querySelectorAll('.projects-btn');
-// const url = 'https://github.com/ValeraKiorkiian/freelance-portfolio/tree/main';
-// button.addEventListener('click', () => {
-//   window.open(url, '_blank');
-// });
+
+
+const buttons = document.querySelectorAll('.projects-btn'); 
+
+const url = 'https://github.com/ValeraKiorkiian/freelance-portfolio/tree/main';
+
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        window.open(url, '_blank'); 
+    });
+});
+    
+
