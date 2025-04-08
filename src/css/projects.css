@@ -1,6 +1,5 @@
 .projects {}
 
-.container {}
 
 .projects-container {
     
@@ -141,15 +140,27 @@
 .icon-prev {
     transform: rotate(180deg);
 }
+
+
+.projects-navigation-btn {
+    cursor: pointer;
+    
+}
+.projects-navigation-btn:hover {
+    color: var(--green);
+}
+.projects-navigation-btn:active {
+    color: var(--green);
+}
 .swiper-button-disabled {
     color: var(--arrow);
 }
-/* .projects-navigation-btn {
-    color: var(--white);
-} */
-/* .projects-navigation-btn:hover {
-    color: var(--green);
-} */
+.swiper-button-disabled:hover {
+    color: var(--arrow);
+}
+.swiper-button-disabled:active {
+    color: var(--arrow);
+}
 
 @media only screen and (min-width: 768px) {
     .projects-technologies {
