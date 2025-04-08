@@ -5,3 +5,4 @@ import './js/projects';
 import './js/reviews';
 import './js/work-together';
 import './js/rew';
+import './js/burger-menu';
