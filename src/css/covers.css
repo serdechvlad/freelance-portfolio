@@ -136,7 +136,7 @@
   }
 }
 .covers-list.active .covers-row-item {
-  animation-duration: 25s;
+  animation-duration: 50s;
   animation-timing-function: cubic-bezier(0.45, 0, 0.55, 1);
   animation-iteration-count: infinite;
   animation-direction: alternate;
