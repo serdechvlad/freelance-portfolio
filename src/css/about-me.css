@@ -1,10 +1,10 @@
 .about-me {
   position: relative;
   background: var(--background);
-  padding: 64px 0 32px;
+  /* padding: 64px 0 32px; */
 }
 
-@media screen and (min-width: 768px) {
+/* @media screen and (min-width: 768px) {
   .about-me {
     padding: 64px 0 48px;
   }
@@ -14,7 +14,7 @@
   .about-me {
     padding: 96px 0 82px;
   }
-}
+} */
 
 .about-wrapper {
   max-width: 100%;
@@ -39,7 +39,7 @@
 }
 
 .about-left {
-  padding: 24px 24px 212px;
+  padding: 24px 24px 30px;
   margin-bottom: 16px;
   background-color: var(--cards);
   border-radius: 24px;
@@ -47,13 +47,13 @@
 
 @media screen and (min-width: 375px) {
   .about-left {
-    padding: 32px 32px 272px;
+    padding: 32px 32px 36px;
   }
 }
 
 @media screen and (min-width: 768px) {
   .about-left {
-    padding: 64px 64px 436px;
+    padding: 64px 64px 36px;
   }
 }
 
@@ -72,6 +72,7 @@
   letter-spacing: -0.03em;
   text-transform: uppercase;
   color: var(--white);
+  margin-bottom: 36px;
 }
 
 @media screen and (min-width: 768px) {
@@ -82,7 +83,7 @@
 }
 
 .about-r-span {
-  color: #ed3b44;
+  color: var(--green);
 }
 
 .about-g-span {
@@ -118,7 +119,8 @@
   box-shadow: 0 1px 0 0 #fafafa33;
 }
 
-#accordion-about .ac:first-child .accordion-container .ac:last-child {
+#accordion-about .ac:first-child,
+#accordion-about .ac:last-child {
   margin-top: 0px;
 }
 
@@ -126,12 +128,6 @@
   #accordion-about .ac {
     margin: 32px 0;
   }
-  #accordion-about .ac:first-child .accordion-container .ac:last-child {
-    margin-top: 0px;
-  }
-}
-
-.active {
 }
 
 #accordion-about .ac.ac-header {
@@ -197,6 +193,7 @@
   background: var(--background);
   color: var(--white);
 }
+
 #accordion-about .ac:first-child .ac-panel .ac-text:first-child {
   padding-bottom: 22px;
   padding-top: 8px;
@@ -213,14 +210,14 @@
 }
 
 @media screen and (min-width: 1440px) {
- #accordion-about .ac .ac-panel {
+  #accordion-about .ac .ac-panel {
     padding: 0 68px 32px 696px;
   }
 
   #accordion-about .ac:not(:first-child) .ac-panel {
     padding-right: 215px;
   }
-  
+
   #accordion-about .ac.is-active .ac-panel .ac-text:first-child {
     padding-top: 8px;
   }
@@ -328,6 +325,7 @@
     width: 600px;
     height: 200px;
   }
+
   #swiper-about .swiper-slide {
     width: 200px;
     height: 200px;
@@ -376,4 +374,31 @@
 
 .icon-next {
   --color1: currentColor;
+}
+
+.swiper-mini-preview {
+  position: relative;
+  width: 279px;
+  height: 200px;
+}
+
+@media screen and (min-width: 768px) {
+  .swiper-mini-preview {
+    width: 550px;
+    height: 364px;
+  }
+}
+
+#swiper-mini {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+#swiper-mini.visible {
+  opacity: 1;
 }
