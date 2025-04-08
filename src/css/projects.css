@@ -1,8 +1,9 @@
 .projects {}
 
-.container {}
 
-.projects-container {}
+.projects-container {
+    
+}
 
 .projects-title {
     text-transform: uppercase;
@@ -43,7 +44,7 @@
     /* margin: 10px 0; */
     font-size: 16px;
     /* border-radius: 24px; */
-    min-width: 343px;
+    /* min-width: 343px; */
     height: auto;
 
     justify-content: space-between;
@@ -138,7 +139,30 @@
 }
 .icon-prev {
     transform: rotate(180deg);
+    --color1: currentColor;
 }
+
+
+.projects-navigation-btn {
+    cursor: pointer;
+    
+}
+.projects-navigation-btn:hover {
+    color: var(--green);
+}
+.projects-navigation-btn:active {
+    color: var(--green);
+}
+.swiper-button-disabled {
+    color: var(--arrow);
+}
+.swiper-button-disabled:hover {
+    color: var(--arrow);
+}
+.swiper-button-disabled:active {
+    color: var(--arrow);
+}
+
 
 @media only screen and (min-width: 768px) {
     .projects-technologies {
