@@ -29,7 +29,7 @@ function renderReviewsCards(cards) {
     .map(
       ({ author, avatar_url, review }) => `
       <li class="swiper-slide" role="group" aria-label="Відгук">
-        <div class="swiper-slide-content">
+        <div class="reviews-slide-content">
           <img src="${avatar_url}" alt="${author}" width="48" height="48" loading="lazy">
           <h3>${author}</h3>
           <p>${review}</p>
@@ -42,7 +42,7 @@ function renderReviewsCards(cards) {
 }
 
 function initSwiper() {
-  const swiper = new Swiper('.swiper', {
+  const swiper = new Swiper('.reviews-swiper', {
     loop: false,
     slidesPerView: 1,
     spaceBetween: 30,

@@ -2,19 +2,43 @@
   <div class="container">
     <h2 id="reviews" class="reviews-title">REVIEWS</h2>
 
-    <div class="swiper reviews-swiper">
+    <div class="swiper reviews-swiper" data-section="reviews">
       <ul class="swiper-wrapper reviews-list">
-        <li class="swiper-slide">
-          <div class="swiper-slide-content">
-            <h3>Anna</h3>
-            <p>The developed project impresses with its quality...</p>
+        <!-- Fallback контент на случай если JS не загрузится -->
+        <li class="swiper-slide" role="group" aria-label="Відгук">
+          <div class="reviews-slide-content">
+            <img
+              src="https://i.pravatar.cc/48?img=1"
+              alt="Anna"
+              width="48"
+              height="48"
+              loading="lazy"
+              class="review-avatar"
+            />
+          </div>
+        </li>
+        <li class="swiper-slide" role="group" aria-label="Відгук">
+          <div class="reviews-slide-content">
+            <img
+              src="https://i.pravatar.cc/48?img=2"
+              alt="Ivetta"
+              width="48"
+              height="48"
+              loading="lazy"
+              class="review-avatar"
+            />
+            <h3>Ivetta</h3>
+            <p>
+              It’s not the will to win that matters—everyone has that. It’s the
+              will to prepare to win that matters.
+            </p>
           </div>
         </li>
       </ul>
 
-      <div class="swiper-navigation">
+      <div class="reviews-navigation">
         <button
-          class="swiper-button-prev"
+          class="swiper-button-prev reviews-button-prev"
           type="button"
           aria-label="Previous review"
         >
@@ -24,7 +48,7 @@
         </button>
 
         <button
-          class="swiper-button-next"
+          class="swiper-button-next reviews-button-next"
           type="button"
           aria-label="Next review"
         >
