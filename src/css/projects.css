@@ -139,6 +139,7 @@
 }
 .icon-prev {
     transform: rotate(180deg);
+    --color1: currentColor;
 }
 
 
@@ -161,6 +162,7 @@
 .swiper-button-disabled:active {
     color: var(--arrow);
 }
+
 
 @media only screen and (min-width: 768px) {
     .projects-technologies {
