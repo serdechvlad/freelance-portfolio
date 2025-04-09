@@ -1,59 +1,21 @@
-<section class="reviews section">
+<section class="reviews section" id="reviews">
   <div class="container">
-    <h2 id="reviews" class="reviews-title">REVIEWS</h2>
-
-    <div class="swiper reviews-swiper" data-section="reviews">
-      <ul class="swiper-wrapper reviews-list">
-        <!-- Fallback контент на случай если JS не загрузится -->
-        <li class="swiper-slide" role="group" aria-label="Відгук">
-          <div class="reviews-slide-content">
-            <img
-              src="https://i.pravatar.cc/48?img=1"
-              alt="Anna"
-              width="48"
-              height="48"
-              loading="lazy"
-              class="review-avatar"
-            />
-          </div>
-        </li>
-        <li class="swiper-slide" role="group" aria-label="Відгук">
-          <div class="reviews-slide-content">
-            <img
-              src="https://i.pravatar.cc/48?img=2"
-              alt="Ivetta"
-              width="48"
-              height="48"
-              loading="lazy"
-              class="review-avatar"
-            />
-            <h3>Ivetta</h3>
-            <p>
-              It’s not the will to win that matters—everyone has that. It’s the
-              will to prepare to win that matters.
-            </p>
-          </div>
-        </li>
-      </ul>
-
-      <div class="reviews-navigation">
-        <button
-          class="swiper-button-prev reviews-button-prev"
-          type="button"
-          aria-label="Previous review"
-        >
-          <svg width="68" height="68" viewBox="0 0 32 32" fill="none">
-            <use xlink:href="#icon-arrow-left"></use>
+    <h2 class="reviews-title">REVIEWS</h2>
+    <div class="reviews-swiper" data-box="swiper">
+      <ul id="reviews-list" class="swiper-wrapper" data-swiper="reviews"></ul>
+      <div class="swiper-btn" data-btn="box">
+        <button class="swiper-btn-prev" data-btn="prev">
+          <svg
+            width="24"
+            height="24"
+            class="review-left icon-arrow default rotate"
+          >
+            <use href="/img/sprite.svg#icon-arrow-right"></use>
           </svg>
         </button>
-
-        <button
-          class="swiper-button-next reviews-button-next"
-          type="button"
-          aria-label="Next review"
-        >
-          <svg width="68" height="68" viewBox="0 0 32 32" fill="none">
-            <use xlink:href="#icon-arrow-right"></use>
+        <button class="swiper-btn-next" data-btn="next">
+          <svg width="24" height="24" class="review-right icon-arrow default">
+            <use href="/img/sprite.svg#icon-arrow-right"></use>
           </svg>
         </button>
       </div>
