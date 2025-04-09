@@ -1,5 +1,5 @@
-.covers-container {
-  padding: 0;
+.covers {
+  padding-top: 0;
 }
 .covers-list {
   display: flex;
@@ -23,6 +23,9 @@
   backdrop-filter: blur(30px);
 }
 @media only screen and (min-width: 768px) {
+  .covers.section {
+    padding-bottom: 96px;
+  }
   .covers-list {
     max-height: 960px;
     background-image: radial-gradient(
@@ -56,106 +59,106 @@
       );
   }
 }
-.covers-row {
+.covers-wrapper {
   margin: 12px 0;
   transform: translateY(-270px) rotate(16deg);
 }
-.covers-row:nth-child(1) .covers-row-item:first-child {
+.covers-wrapper:nth-child(1) .covers-wrapper-item:first-child {
   margin-left: 153px;
 }
-.covers-row:nth-child(2) .covers-row-item:first-child {
+.covers-wrapper:nth-child(2) .covers-wrapper-item:first-child {
   margin-left: 0;
 }
-.covers-row:nth-child(3) .covers-row-item:first-child {
+.covers-wrapper:nth-child(3) .covers-wrapper-item:first-child {
   margin-left: -690px;
 }
-.covers-row:nth-child(4) .covers-row-item:first-child {
+.covers-wrapper:nth-child(4) .covers-wrapper-item:first-child {
   margin-left: -77px;
 }
-.covers-row:nth-child(5) .covers-row-item:first-child {
+.covers-wrapper:nth-child(5) .covers-wrapper-item:first-child {
   margin-left: -690px;
 }
 
 @media only screen and (min-width: 768px) {
-  .covers-row {
+  .covers-wrapper {
     margin: 32px 0;
     transform: translateY(-510px) rotate(16deg);
   }
-  .covers-row:nth-child(1) .covers-row-item:first-child {
+  .covers-wrapper:nth-child(1) .covers-wrapper-item:first-child {
     margin-left: 144px;
   }
-  .covers-row:nth-child(2) .covers-row-item:first-child {
+  .covers-wrapper:nth-child(2) .covers-wrapper-item:first-child {
     margin-left: -115px;
   }
-  .covers-row:nth-child(3) .covers-row-item:first-child {
+  .covers-wrapper:nth-child(3) .covers-wrapper-item:first-child {
     margin-left: -1430px;
   }
-  .covers-row:nth-child(4) .covers-row-item:first-child {
+  .covers-wrapper:nth-child(4) .covers-wrapper-item:first-child {
     margin-left: -288px;
   }
-  .covers-row:nth-child(5) .covers-row-item:first-child {
+  .covers-wrapper:nth-child(5) .covers-wrapper-item:first-child {
     margin-left: -1300px;
   }
 }
 @media only screen and (min-width: 1440px) {
-  .covers-row {
+  .covers-wrapper {
     margin: 36px 0;
     transform: translateY(-520px) rotate(16deg);
   }
-  .covers-row:nth-child(1) .covers-row-item:first-child {
+  .covers-wrapper:nth-child(1) .covers-wrapper-item:first-child {
     margin-left: 210px;
   }
-  .covers-row:nth-child(2) .covers-row-item:first-child {
+  .covers-wrapper:nth-child(2) .covers-wrapper-item:first-child {
     margin-left: 88px;
   }
-  .covers-row:nth-child(3) .covers-row-item:first-child {
+  .covers-wrapper:nth-child(3) .covers-wrapper-item:first-child {
     margin-left: -1155px;
   }
-  .covers-row:nth-child(4) .covers-row-item:first-child {
+  .covers-wrapper:nth-child(4) .covers-wrapper-item:first-child {
     margin-left: -35px;
   }
-  .covers-row:nth-child(5) .covers-row-item:first-child {
+  .covers-wrapper:nth-child(5) .covers-wrapper-item:first-child {
     margin-left: -1628px;
   }
 }
-.covers-row-list {
+.covers-wrapper-list {
   display: flex;
 }
-.covers-row-item {
+.covers-wrapper-item {
   flex-shrink: 0;
   margin: 0 12px;
 }
 @media only screen and (min-width: 768px) {
-  .covers-row-item {
+  .covers-wrapper-item {
     margin: 0 24px;
   }
 }
 @media only screen and (min-width: 1440px) {
-  .covers-row-item {
+  .covers-wrapper-item {
     margin: 0 32px;
   }
 }
-.covers-list.active .covers-row-item {
+.covers-list.active .covers-wrapper-item {
   animation-duration: 50s;
   animation-timing-function: cubic-bezier(0.45, 0, 0.55, 1);
   animation-iteration-count: infinite;
   animation-direction: alternate;
 }
-.covers-row:nth-child(odd) .covers-row-item {
+.covers-wrapper:nth-child(odd) .covers-wrapper-item {
   animation-name: marqueeLineLeft;
 }
-.covers-row:nth-child(even) .covers-row-item {
+.covers-wrapper:nth-child(even) .covers-wrapper-item {
   animation-name: marqueeLineRight;
 }
-.covers-row-item > img {
+.covers-wrapper-item > img {
   width: 282px;
   height: 163px;
 }
-.covers-row-item > img {
+.covers-wrapper-item > img {
   object-fit: cover;
 }
 @media only screen and (min-width: 768px) {
-  .covers-row-item > img {
+  .covers-wrapper-item > img {
     width: 544px;
     height: 314px;
   }
