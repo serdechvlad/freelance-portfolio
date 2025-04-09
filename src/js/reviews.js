@@ -1,3 +1,4 @@
+
 import Swiper from 'swiper';
 import { Navigation, Pagination, Keyboard } from 'swiper/modules';
 import 'swiper/css/navigation';
@@ -56,4 +57,5 @@ async function renderReviews() {
 }
 
 document.addEventListener('DOMContentLoaded', renderReviews);
+
 
